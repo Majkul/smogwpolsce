@@ -6,7 +6,7 @@ from RootWidget import RootWidget
 from City import City, FirstScreen
 from Menu import SettingsScreen, MenuScreen
 
-
+Window.size = (400, 700)
 Window.clearcolor = (1, 1, 1, 1)
 
     

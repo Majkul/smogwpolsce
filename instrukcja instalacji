@@ -1,5 +1,5 @@
 Instrukcja instalacji
 Kod jest przeznaczony na system Windows
-1. Pobierz folder o nazwie "hackheroes" z git hub'a na dysk
-2. Zainstaluj wymagane biblioteki: Kivy (https://kivy.org/doc/stable/installation/installation-windows.html), Pillow (pip install Pillow), requests (pip install requests)
-3. Uruchom plik main.py za pomocą np. "Visual Studio Code", w wersji python 3.7.5
+1. Pobierz folder o nazwie "hackheroes" z git hub'a na dysk, nie zmieniając nazwy folderu.
+2. Zainstaluj wymagane biblioteki: Kivy (https://kivy.org/doc/stable/installation/installation-windows.html), Pillow (pip install Pillow), requests (pip install requests).
+3. Uruchom plik main.py za pomocą np. "Visual Studio Code", w wersji python 3.7.5.

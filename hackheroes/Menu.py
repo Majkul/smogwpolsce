@@ -80,7 +80,7 @@ class SettingsScreen(Screen):
         elif self.city == "http://api.looko2.com/?method=Widget2&id=6001944BCBF4":
             self.city = "Szczecin"
         elif self.city == "http://api.looko2.com/?method=Widget2&id=A020A6331663":
-            self.city = "Gdzynia"
+            self.city = "Gdynia"
         self.city_info.text = "Miasto: " + self.city
     def res_name(self):
         with open("hackheroes/data/name.txt", "w") as fobj:

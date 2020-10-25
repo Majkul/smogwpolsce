@@ -1,0 +1,322 @@
+WindowManager:
+    
+    FirstScreen:
+    City:
+    MenuScreen:
+    ScreenCoTo:
+    RootWidget: 
+    SettingsScreen:
+
+<FirstScreen>:
+    name: 'a'
+    on_enter: root.changeScreen
+    first_name_text_input: first_user_name
+    BoxLayout: 
+        cols: 2
+        spacing: 5  
+        padding: 10, 10
+        orientation: "vertical" 
+        Label:
+            size_hint: (1, 0.5)
+            color: 0,0,0,1
+            text: root.text
+        TextInput:
+            size_hint: (1, 0.5)
+            id: first_user_name
+            pos: 760,400
+            size: 100, 30
+        Button:
+            size_hint: (1, 0.5)
+            size: 100, 30
+            text: "Dalej"
+            background_color: 0, 2.04, 2.04, 1
+            on_release: 
+                root.submit_name(), 
+                root.manager.current = 'city'
+<City>:
+    on_enter: root.changeScreen
+    name: "city"
+    BoxLayout: 
+        cols: 2
+        spacing: 5  
+        padding: 10, 10
+
+        orientation: "vertical" 
+        Label:
+            size_hint: (1, 0.5)
+            halign:'center'
+            valign:'top'
+            multilines: False
+            font_size: self.size[0] * 0.04
+            text_size: self.size
+            color: 0,0,0,1
+            text: root.text
+        Button:    
+            background_color: 0, 2.04, 2.04, 1
+            text: "Warszawa"
+            on_press: root.changeScreen2(), root.warszawa(), root.save_id_stat()
+                
+        Button:    
+            background_color: 0, 2.04, 2.04, 1
+            text: root.krakow_text
+            on_press: root.changeScreen2(), root.krakow(), root.save_id_stat()
+                
+        Button:
+            background_color: 0, 2.04, 2.04, 1
+            text: root.wroclaw_text
+            on_press: root.changeScreen2(), root.wroclaw(), root.save_id_stat()
+
+        Button:
+            background_color: 0, 2.04, 2.04, 1
+            text: "Katowice"
+            on_press: root.changeScreen2(), root.katowice(), root.save_id_stat()
+
+        Button:                
+            background_color: 0, 2.04, 2.04, 1
+            text: "Gdynia"
+            on_press: root.changeScreen2(), root.gdynia(), root.save_id_stat()
+        Button:   
+            background_color: 0, 2.04, 2.04, 1
+            text: root.lodz_text
+            on_press: root.changeScreen2(), root.lodz(), root.save_id_stat()
+
+        Button:   
+            background_color: 0, 2.04, 2.04, 1
+            text: root.bialystok_text
+            on_press: root.changeScreen2(), root.bialystok(), root.save_id_stat()
+
+        Button:
+            background_color: 0, 2.04, 2.04, 1
+            text: "Szczecin"
+            on_press: root.changeScreen2(), root.szczecin(), root.save_id_stat()
+        Button:                
+            background_color: 0, 2.04, 2.04, 1
+            text: root.jaswilt_text
+            on_press: root.changeScreen2(), root.jaswily(), root.save_id_stat()
+
+<MenuScreen>:
+    on_enter: root.nameid
+    wiadomosc_load: wiadomosc
+    img_id: image
+    name: "menu"
+    GridLayout:
+        orientation: "vertical" 
+        cols: 1
+        spacing: 10  
+        padding: 10, 10
+
+        AsyncImage: 
+            id: image
+            source: ''
+            allow_stretch: True
+            size_hint: (0.5, 0.6)
+        Label:
+            id: wiadomosc
+            color: 0,0,0,1
+            text: ''
+            size_hint: (1, 0.3)
+            halign:'center'
+            valign:'top'
+            multilines: False
+            font_size: self.size[0] * 0.06
+            text_size: self.size
+            background_color:2.55,0,0,1
+
+        GridLayout:
+            cols: 1
+            orientation: "vertical"
+            pos: 100, 100 
+            spacing: 10  
+            padding: 10, 10
+            size_hint: (0.5, 0.5)
+            Button:
+                text: "Co to znaczy?"
+                background_color: 0, 2.04, 2.04, 1
+                size_hint: (0.5, 0.5)
+                on_press: root.manager.current = "coto" 
+            Button:
+                text: root.jakosc_text
+                background_color: 0, 2.04, 2.04, 1
+                size_hint: (0.5, 0.5)
+                on_press: root.manager.current = 'screenpowietrze'   
+            Button:
+                text: "Opcje"
+                background_color: 0, 2.04, 2.04, 1
+                size_hint: (0.5, 0.5)
+                on_press: root.manager.current = 'settings' 
+<ScreenCoTo>:
+    name: "coto"
+    BoxLayout:
+        orientation: "vertical" 
+        cols: 2
+        spacing: 10  
+        padding: 10, 10
+        AsyncImage: 
+            size_hint: (1, 0.6)
+            #size: (300, 200)
+            source: 'hackheroes/img/PM.png'
+            background_color: 2.55, 2.55, 2.55, 1
+            allow_stretch: True
+        AsyncImage: 
+            size_hint: (1, 0.6)
+            #size: (300, 200)
+            source: 'hackheroes/img/skutki.png'
+            background_color: 2.55, 2.55, 2.55, 1
+            allow_stretch: True
+        
+        Button:                
+            size_hint: (1, 0.2)
+            background_color: 0.69, 0.69, 0.69, 1
+            text: "Powrot"
+            on_press: root.manager.current = 'menu'   
+
+<RootWidget>:
+    label_wid: my_custom_label
+    name: "screenpowietrze"
+    GridLayout:
+        orientation: "vertical" 
+        cols: 1
+        spacing: 10  
+        padding: 10, 10
+        AsyncImage: 
+            size_hint: (0.5, 0.35)
+            source: root.id
+            background_color: 2.55, 2.55, 2.55, 1
+            allow_stretch: True
+        Label:
+            size_hint: (0.5, 0.2)
+            id: my_custom_label
+            text: ''
+            halign:'center'
+            valign:'top'
+            multilines: False
+            font_size: self.size[0] * 0.05
+            color: 0,0,0,1
+            text_size: self.size
+        AsyncImage: 
+            size_hint: (0.5, 0.5)
+            source: 'hackheroes/img/black.png'
+            background_color: 2.55, 2.55, 2.55, 1
+            allow_stretch: True
+
+    GridLayout:
+        size_hint: (1, 0.5)
+        cols: 1
+        orientation: "vertical" 
+        spacing: 10        
+        padding: 10, 10
+        Button:    
+            background_normal: ''
+            background_color: root.warszawacolorid
+            text: "Warszawa"
+            on_press: root.warszawa(), root.text()
+                
+        Button:    
+            background_normal: ''
+            background_color: root.krakowcolorid
+            text: root.krakow_text
+            on_press: root.krakow(), root.text()
+                
+        Button:
+            background_normal: ''
+            background_color: root.wroclawcolorid
+            text: root.wroclaw_text
+            on_press: root.wroclaw(), root.text()
+
+        Button:
+            background_normal: ''
+            background_color: root.katowicecolorid
+            text: "Katowice"
+            on_press: root.katowice(), root.text()
+
+        Button:                
+            background_normal: ''
+            background_color: root.gdyniacolorid
+            text: "Gdynia"
+            on_press: root.gdynia(), root.text()
+
+        Button:   
+            background_normal: ''
+            background_color: root.lodzcolorid
+            text: root.lodz_text
+            on_press: root.lodz(), root.text()
+
+        Button:   
+            background_normal: ''
+            background_color: root.bialystokcolorid
+            text: root.bialystok_text
+            on_press: root.bialystok(), root.text()
+
+        Button:
+            background_normal: ''
+            background_color: root.szczecincolorid
+            text: "Szczecin"
+            on_press: root.szczecin(), root.text()
+
+        Button:                
+            background_normal: ''
+            background_color: root.jaswilycolorid
+            text: root.jaswily_text
+            on_press: root.jaswily(), root.text()
+        
+        Button:                
+            background_normal: ''
+            background_color: 0.69, 0.69, 0.69, 1
+            text: root.powrot_text
+            on_press: root.manager.current = 'menu'   
+
+<SettingsScreen>:
+    name: "settings"
+    on_enter: root.info()
+    imie_info: imie
+    city_info: city
+    GridLayout:
+        
+        cols: 1
+        orientation: "vertical" 
+        spacing: 10        
+        padding: 10, 10
+        Label:
+            
+            id: imie
+            text: ''
+            halign:'center'
+            valign:'top'
+            multilines: False
+            font_size: self.size[0] * 0.07
+            color: 0,0,0,1
+            text_size: self.size
+            
+        Label:
+            
+            id: city
+            text: ''
+            halign:'center'
+            valign:'top'
+            multilines: False
+            font_size: self.size[0] * 0.07
+            color: 0,0,0,1
+            text_size: self.size
+            
+        Button:                
+            
+            background_color: 0, 2.04, 2.04, 1
+            text: "Resetuj imie"
+            on_press: 
+                root.res_name()
+                root.manager.current = 'a'   
+            
+        Button:                
+            
+            background_color: 0, 2.04, 2.04, 1
+            text: "Resetuj miasto"
+            on_press: 
+                root.res_city() 
+                root.manager.current = 'city'   
+        
+        Button:                
+            
+            background_color: 0.69, 0.69, 0.69, 1
+            text: "Powrot"
+            on_press: root.manager.current = 'menu'   
+                
